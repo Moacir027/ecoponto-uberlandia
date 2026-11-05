@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#1f7a4d">
+<title>Ecoponto Uberlândia</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand"><span class="logo">♻️</span><div><h1>Ecoponto</h1><small>Uberlândia · MG</small></div></div>
+  <p class="tagline">Descarte certo, cidade limpa. Encontre o ecoponto mais perto de você.</p>
+  <div class="stats"><div><b id="count">12</b><span>ecopontos</span></div><div><b>Grátis</b><span>descarte</span></div><div><b>156</b><span>Prefeitura</span></div></div>
+</header>
+<main>
+  <section id="home-view" class="view active">
+    <div class="card intro"><h2>🌱 Cuide do meio ambiente</h2><p>Separar o lixo ajuda a reciclar materiais e manter Uberlândia mais limpa.</p></div>
+    <h2 class="sec">Como separar o lixo?</h2>
+    <div class="bins">
+      <div class="bin azul"><i>📄</i><b>Papel</b><span>Jornais, folhas e caixas limpas</span></div>
+      <div class="bin vermelho"><i>🧴</i><b>Plástico</b><span>Garrafas e embalagens vazias</span></div>
+      <div class="bin verde"><i>🍾</i><b>Vidro</b><span>Potes e garrafas; embale os quebrados</span></div>
+      <div class="bin amarelo"><i>🥫</i><b>Metal</b><span>Latas limpas e vazias</span></div>
+    </div>
+    <div class="card cta"><h2>📍 Onde encontrar um ecoponto?</h2><p>Veja no mapa os pontos de coleta perto de você.</p>
+      <button class="btn" data-go="map">Ver ecopontos no mapa</button>
+      <p class="aviso">Confira horários e materiais aceitos antes de ir.</p></div>
+    <div class="card dica"><h2>⚠️ Dica importante</h2><p>Pilhas, baterias, lâmpadas e eletrônicos precisam de pontos de coleta especiais. Não coloque no lixo comum.</p></div>
+    <div class="card"><button id="dica-btn" class="btn outline">💡 Ver uma dica</button><p id="dica-js"></p></div>
+    <footer>Projeto informativo sobre descarte correto em Uberlândia.</footer>
+  </section>
+  <section id="map-view" class="view"><div id="map"></div>
+    <button id="locate" class="fab">📍 Mais próximo</button>
+    <div id="carousel"></div></section>
+  <section id="list-view" class="view">
+    <input id="search" type="search" placeholder="Buscar bairro ou ecoponto...">
+    <ul id="list"></ul></section>
+  <section id="info-view" class="view">
+    <div class="card"><h3>✅ Aceito nos ecopontos</h3>
+      <ul><li>Entulho de pequenas obras (até 1 m³)</li><li>Podas de árvores e jardim</li><li>Móveis e colchões velhos</li><li>Recicláveis: papel, plástico, metal, vidro</li><li>Óleo de cozinha usado (em garrafa PET)</li><li>Pneus (consulte o ecoponto)</li></ul></div>
+    <div class="card"><h3>❌ Não aceito</h3>
+      <ul><li>Lixo doméstico orgânico</li><li>Lixo hospitalar</li><li>Produtos químicos e tóxicos</li><li>Animais mortos</li></ul></div>
+    <div class="card"><h3>🕒 Horário</h3><p>Geralmente segunda a sábado, 7h às 19h. Confirme com a Prefeitura / DMAE (telefone 156).</p></div>
+  </section>
+</main>
+<nav class="tabs bottom">
+  <button class="tab active" data-view="home"><i>🏠</i>Início</button>
+  <button class="tab" data-view="map"><i>🗺️</i>Mapa</button>
+  <button class="tab" data-view="list"><i>📋</i>Lista</button>
+  <button class="tab" data-view="info"><i>ℹ️</i>Descarte</button>
+</nav>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.22/leaflet-maplibre-gl.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
